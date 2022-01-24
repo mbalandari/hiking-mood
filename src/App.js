@@ -1,8 +1,11 @@
-import './App.css';
+import { GlobalStyle } from './styles';
+;
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
+      <GlobalStyle />
       <h1>Hiking Mood</h1>
     </div>
   );
