@@ -1,6 +1,7 @@
 import Header from './components/Header';
-import { GlobalStyle } from './styles';
+import { GlobalStyle, ImageContainer, Wrapper } from './styles';
 import Footer from './components/Footer';
+import ImgBox from './components/ImgBox';
 ;
 
 
@@ -11,6 +12,11 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <Footer />
+      <Wrapper>
+        <ImageContainer>
+          <ImgBox />
+        </ImageContainer>
+      </Wrapper>
     </>
   );
 }
