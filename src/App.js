@@ -1,13 +1,14 @@
+import Header from './components/Header';
 import { GlobalStyle } from './styles';
 ;
 
 
 const App = () => {
   return (
-    <div className="App">
+    <>
       <GlobalStyle />
-      <h1>Hiking Mood</h1>
-    </div>
+      <Header />
+    </>
   );
 }
 
