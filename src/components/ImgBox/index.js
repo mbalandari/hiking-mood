@@ -2,9 +2,9 @@ import { Image } from './styles';
 ;
 
 
-const ImgBox = () => {
+const ImgBox = ({ x, y }) => {
     return (
-        <Image />
+        <Image $initialX={x} $initialY={y} />
     )
 }
 
