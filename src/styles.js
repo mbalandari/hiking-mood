@@ -26,6 +26,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 
 `
+export const AbsoluteCenter = css`
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+`
 
 export const Marginals = css`
     box-sizing: border-box;
@@ -61,10 +67,7 @@ export const Wrapper = styled.section.attrs(({ $color }) => ({
 `
 
 export const Button = styled.button`
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
+    ${AbsoluteCenter}
     background: none;
     border: 2px solid #fbfbfb;
     border-radius: 100%;

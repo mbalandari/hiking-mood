@@ -1,11 +1,13 @@
-import { BG, Modal } from './styles';
+import { BG, Close, Modal } from './styles';
 ;
 
 
-const ModalComponent = () => (
+const ModalComponent = ({ toggleModal }) => (
     <>
-        <Modal />
-        <BG />
+        <Modal>
+            <Close onClick={toggleModal} />
+        </Modal>
+        <BG onClick={toggleModal} />
     </>
 )
 

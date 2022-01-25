@@ -45,7 +45,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      {showModal && <Modal />}
+      {showModal && <Modal toggleModal={toggleModal} />}
       <Header />
       <Footer />
       <Wrapper onMouseMove={handleMove} onTouchMove={handleTouchMove} $color={Math.round(240 - distance * 40)}>
