@@ -1,5 +1,5 @@
 import Header from './components/Header';
-import { GlobalStyle, ImageContainer, Wrapper } from './styles';
+import { Button, GlobalStyle, ImageContainer, Wrapper } from './styles';
 import Footer from './components/Footer';
 import ImgBox from './components/ImgBox';
 import { useState } from 'react';
@@ -43,6 +43,7 @@ const App = () => {
       <Footer />
       <Wrapper onMouseMove={handleMove} onTouchMove={handleTouchMove} $color={Math.round(240 - distance * 40)}>
         <ImageContainer $isTogether={distance < .001}>
+          <Button>Sign up for updates</Button>
           {matrix.map(([x, y], index) => (
             <ImgBox key={index} x={x} y={y} percent={distance} />
           ))}
