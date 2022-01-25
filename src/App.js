@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import ImgBox from './components/ImgBox';
 import { useState } from 'react';
 import Modal from './components/Modal';
+import ModalInner from './components/ModalInner';
 
 const matrix = [
   [0, 0], [1, 0], [2, 0], [3, 0],
@@ -45,7 +46,9 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      {showModal && <Modal toggleModal={toggleModal} />}
+      {showModal && <Modal toggleModal={toggleModal}>
+        <ModalInner />
+      </Modal>}
       <Header />
       <Footer />
       <Wrapper onMouseMove={handleMove} onTouchMove={handleTouchMove} $color={Math.round(240 - distance * 40)}>
