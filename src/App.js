@@ -3,6 +3,7 @@ import { Button, GlobalStyle, ImageContainer, Wrapper } from './styles';
 import Footer from './components/Footer';
 import ImgBox from './components/ImgBox';
 import { useState } from 'react';
+import Modal from './components/Modal';
 
 const matrix = [
   [0, 0], [1, 0], [2, 0], [3, 0],
@@ -16,6 +17,7 @@ const matrix = [
 const App = () => {
 
   const [distance, setDistance] = useState(1);
+  const [showModal, setShowModal] = useState(false);
 
   const easing = (num) => Math.pow(num, 3);
 
@@ -36,14 +38,19 @@ const App = () => {
     calDistance([touches[0].clientX, touches[0].clientY]);
   }
 
+  const toggleModal = () => {
+    setShowModal((showModal) => !showModal)
+  }
+
   return (
     <>
       <GlobalStyle />
+      {showModal && <Modal />}
       <Header />
       <Footer />
       <Wrapper onMouseMove={handleMove} onTouchMove={handleTouchMove} $color={Math.round(240 - distance * 40)}>
         <ImageContainer $isTogether={distance < .001}>
-          <Button>Sign up for updates</Button>
+          <Button onClick={toggleModal}>Sign up for updates</Button>
           {matrix.map(([x, y], index) => (
             <ImgBox key={index} x={x} y={y} percent={distance} />
           ))}
