@@ -1,7 +1,15 @@
 import * as Yup from 'yup';
-import { Formik, Form, Field } from 'formik';
-;
+import { Formik, Form, Field, useField } from 'formik';
 
+const InputComponent = ({ label, ...props }) => {
+    const [field, meta] = useField(props);
+    return (
+        <label>
+            {label}: {meta.touched && meta.error && <div>{meta.error}</div>}
+            <input {...field} {...props} />
+        </label>
+    )
+}
 
 const FormComponent = ({ handleSuccess }) => {
 
@@ -20,30 +28,16 @@ const FormComponent = ({ handleSuccess }) => {
             onSubmit={handleSuccess}
             validationSchema={schema}
         >
-            {({ errors, touched }) => (
+            {() => (
                 <Form>
-                    <label>Name: </label>
-                    <Field name="name" type="text" autoComplete="off" />
-                    {touched.name && errors && <div>{errors.name}</div>}
-
-                    <label>Email address: </label>
-                    <Field name="email" type="email" autoComplete="off" />
-                    {touched.email && errors && <div>{errors.email}</div>}
+                    <InputComponent name="name" type="text" label="Name" autocomplete="off" />
+                    <InputComponent name="email" type="email" label="Email" autocomplete="off" />
 
                     <button type="submit">Submit</button>
                 </Form>
             )}
 
         </Formik>
-        // {/* <form onSubmit={handleSuccess}>
-        //     <label htmlFor="name">Name: </label>
-        //     <input name="name" type="text" required autoComplete="off" />
-
-        //     <label htmlFor="email">Email address: </label>
-        //     <input name="email" type="email" required autoComplete="off" />
-
-        //     <button type="submit">Submit</button>
-        // </form> */}
     )
 }
 
