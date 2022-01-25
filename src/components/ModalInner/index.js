@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Form from "../Form";
 import { Container, H3, H4, P, Socials, SuccessContainer } from "./styles";
-import { ReactComponent as Happy } from './happy1.svg';
+import { ReactComponent as Happy } from './happy.svg';
 import { ReactComponent as Twitter } from './twitter.svg';
 import { ReactComponent as Linkedin } from './linkedin.svg';
 import { ReactComponent as Github } from './github.svg';
