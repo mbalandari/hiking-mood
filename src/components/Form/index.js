@@ -1,13 +1,14 @@
 import * as Yup from 'yup';
-import { Formik, Form, Field, useField } from 'formik';
+import { Formik, Form, useField } from 'formik';
+import { Error, Input, Label, Submit } from './styles';
 
 const InputComponent = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
-        <label>
-            {label}: {meta.touched && meta.error && <div>{meta.error}</div>}
-            <input {...field} {...props} />
-        </label>
+        <Label>
+            {label}: {meta.touched && meta.error && <Error>{meta.error}</Error>}
+            <Input {...field} {...props} />
+        </Label>
     )
 }
 
@@ -33,7 +34,7 @@ const FormComponent = ({ handleSuccess }) => {
                     <InputComponent name="name" type="text" label="Name" autocomplete="off" />
                     <InputComponent name="email" type="email" label="Email" autocomplete="off" />
 
-                    <button type="submit">Submit</button>
+                    <Submit type="submit">Submit</Submit>
                 </Form>
             )}
 
